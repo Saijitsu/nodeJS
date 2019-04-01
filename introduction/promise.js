@@ -13,4 +13,8 @@ function getNumber() {
     })
 }
 
+emitter.on('randError', (error, number) => {
+    console.log('Error: %s (number %d)', error, number)
+});
+
 getNumber().then(console.log).catch(console.log);
