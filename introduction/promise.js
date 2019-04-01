@@ -2,8 +2,8 @@ const EventEmitter = require('events');
 const emitter = new EventEmitter();
 
 function getNumber() {
-    let randTime = Math.floor(Math.random * 3000 + 1000);
-    let randError = Math.floor(Math.random * 3 + 1);
+    let randTime = Math.floor(Math.random() * 3000 + 1000);
+    let randError = Math.floor(Math.random() * 3 + 1);
     emitter.emit('randTime', randTime); // va déclancher un événement
     emitter.emit('randError', ! (randError > 1), randError);
     return new Promise((resolve, reject) => {
@@ -12,3 +12,5 @@ function getNumber() {
         }, randTime)
     })
 }
+
+getNumber().then(console.log).catch(console.log);
