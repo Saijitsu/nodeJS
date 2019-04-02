@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "@tonno/dawan": "0.0.9",
     "nodemon": "^1.18.10",
     "npm": "^6.9.0"
   },
