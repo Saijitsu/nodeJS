@@ -1,0 +1,24 @@
+<html>
+
+<head>
+    <title>{% block title %}{% endblock %}</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="/public/css/style.css" />
+</head>
+
+<body>
+    <main>
+        <header>
+            <h1> Node <small>Express</small></h1>
+        </header>
+        <section>
+                {% block content %}{% endblock %}
+        </section>
+        <footer>
+            <hr />
+            <p>Formation Node - Nantes - Avril 2019</p>
+        </footer>
+    </main>
+</body>
+
+</html>

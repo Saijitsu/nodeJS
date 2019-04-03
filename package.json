@@ -9,7 +9,8 @@
     "express": "^4.16.4",
     "find-my-way": "^2.0.1",
     "nodemon": "^1.18.10",
-    "npm": "^6.9.0"
+    "npm": "^6.9.0",
+    "nunjucks": "^3.2.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
