@@ -1,0 +1,20 @@
+{% extends 'base.njk.html' %}
+
+{% block title %}
+
+Hello
+
+{% endblock %}
+
+{% block content %} 
+
+<h1> Bienvenue sur la page Hello</h1>
+
+<div>
+    <a href="/hello/jean">Jean</a>
+    <a href="/hello/sophie">Sophie</a>
+</div>
+{{ name | safe}}
+<!-- ici le safe revient a dire que autoescape = false pour html, qui est sur ici -->
+
+{% endblock %}

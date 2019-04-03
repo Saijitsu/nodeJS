@@ -19,9 +19,18 @@ app.get('/', (request, response) => {
 
     let userSource = "<script>alert('xss')</script>";
 
-    response.render('accueil.njk.html', { html: userSource });
+    response.render('accueil.njk.html', { html: userSource }); 
+    // userSource devient accessible dans le html d'accueil
 
 });
+
+app.get('/hello/:name', (request, response) => {
+    let name = request.params.name;
+
+    response.render('hello.njk.html', { name: name }); 
+    // transmission d'un parametre du controleur ver la vue
+});
+
 
 app.get('/old', (request, response) => {
 

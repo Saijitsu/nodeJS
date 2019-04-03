@@ -5,9 +5,11 @@
   "main": "index.js",
   "dependencies": {
     "@tonno/dawan": "0.0.9",
+    "body-parser": "^1.18.3",
     "esm": "^3.2.22",
     "express": "^4.16.4",
     "find-my-way": "^2.0.1",
+    "mongoose": "^5.4.21",
     "nodemon": "^1.18.10",
     "npm": "^6.9.0",
     "nunjucks": "^3.2.0"
