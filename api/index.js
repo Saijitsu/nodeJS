@@ -1,4 +1,5 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 
 const app = express();
 
@@ -14,17 +15,57 @@ mongoose.connect('mongodb://localhost:27017/nodeJS', {
 }).then(() => {
     console.log('Connexion établie avec succès')
 });
-const db = mongoose.connection;
 
-const Product = require('.model/product');
+// const db = mongoose.connection; <= recupérer les infos de la connection
+
+const Product = require('./model/product');
+
+// middleware (permet d'ajouter a express des fonctionnalités: ex, par défaut express n'a pas de sessions)
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+    extended: false
+}));
+
 
 app.get('/product', (request, response) => {
-    Product.find().then(() => {
+    Product.find().then((products) => {
         response.send(products);
+        // look here : http://localhost:3200/product
+        // pour tester son code https://jsonplaceholder.typicode.com/
     });
 });
 
-app.get('product/:id', (request, response) => {
+app.get('/product/:id', (request, response) => {
+
+    Product.findById(request.params.id).then((product) => {
+        response.send(product);
+    });
+});
+
+app.post('/product', (request, response) => {
+    let product = new Product({
+        name: request.body.name,
+        price: request.body.price
+    });
+
+    product.save().then(() => {
+        response.statusCode = 201;
+        response.send({
+            "message": "Created"
+        });
+    });
+});
+
+app.put('/product/:id', (request, response) => {
+    Product.findByIdAndUpdate(request.params.id, request.body).then( () => {
+        response.statusCode = 204;
+        response.send({
+            "message": "No Content"
+        });
+    })
+});
+
+app.delete('/product/:id', (request, response) => {
 
 });
 
