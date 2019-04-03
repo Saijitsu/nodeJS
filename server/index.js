@@ -29,7 +29,7 @@ const router = require('find-my-way')({
                 } else {
                     const ext = path.parse(page).ext;
 
-                    response.setHeader('Content-Type', mineType[ext] || 'text/plain');
+                    response.setHeader('Content-Type', mimeType[ext] || 'text/plain');
                     response.end(data);
                 }
             })
@@ -43,6 +43,7 @@ router.get('/', (request, response) => {
     <head>
     <title>Accueil</title>
     <meta charset="utf-8"/>
+    <link rel="stylesheet" href="/public/css/style.css" />
     </head>
     <body>
     <h1>Bravo, la première étape vers le succès a été atteinte</h1>
@@ -59,6 +60,7 @@ router.get('/contact', (request, response) => {
         <head>
             <title>Contact</title>
             <meta charset="utf-8"/>
+            <link rel="stylesheet" href="/public/css/style.css" />
         </head>
     <body>
         <h1>Bravo, vous êtes sur contact!</h1>

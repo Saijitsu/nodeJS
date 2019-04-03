@@ -6,6 +6,7 @@
   "dependencies": {
     "@tonno/dawan": "0.0.9",
     "esm": "^3.2.22",
+    "express": "^4.16.4",
     "find-my-way": "^2.0.1",
     "nodemon": "^1.18.10",
     "npm": "^6.9.0"
