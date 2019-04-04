@@ -57,7 +57,7 @@ app.post('/product', (request, response) => {
 });
 
 app.put('/product/:id', (request, response) => {
-    Product.findByIdAndUpdate(request.params.id, request.body).then( () => {
+    Product.findByIdAndUpdate(request.params.id, request.body).then(() => {
         response.statusCode = 204;
         response.send({
             "message": "No Content"
@@ -66,7 +66,12 @@ app.put('/product/:id', (request, response) => {
 });
 
 app.delete('/product/:id', (request, response) => {
-
+    Product.findByIdAndRemove(request.params.id).then(() => {
+        response.statusCode = 204;
+        response.send({
+            "message": "No Content"
+        });
+    })
 });
 
 app.listen(3200, () => {
